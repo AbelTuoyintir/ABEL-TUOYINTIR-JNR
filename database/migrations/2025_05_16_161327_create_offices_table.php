@@ -20,7 +20,10 @@ return new class extends Migration
             $table->foreignId('region_id');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->timestamps();
+             $table->string('updated_by')->nullable();
+            $table->string('created_by')->nullable();
+            $table->timestamps('created_at');
+            $table->timestamps('updated_at');
         });
     }
 
