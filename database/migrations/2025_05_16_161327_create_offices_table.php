@@ -22,8 +22,7 @@ return new class extends Migration
             $table->enum('status', ['active', 'inactive'])->default('active');
              $table->string('updated_by')->nullable();
             $table->string('created_by')->nullable();
-            $table->timestamps('created_at');
-            $table->timestamps('updated_at');
+            $table->timestamps();
         });
     }
 

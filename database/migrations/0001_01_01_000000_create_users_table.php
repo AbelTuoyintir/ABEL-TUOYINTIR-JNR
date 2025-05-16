@@ -25,10 +25,7 @@ return new class extends Migration
             $table->foreignId('office_id');
             $table->foreignId('department_id');
             $table->rememberToken();
-            $table->string('updated_by')->nullable();
-            $table->string('created_by')->nullable();
-            $table->timestamps('created_at');
-            $table->timestamps('updated_at');
+            $table->timestamps();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

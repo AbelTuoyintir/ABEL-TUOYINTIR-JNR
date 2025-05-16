@@ -26,8 +26,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('updated_by')->nullable();
             $table->string('created_by')->nullable();
-            $table->timestamps('created_at');
-            $table->timestamps('updated_at');
+            $table->timestamps();
         });
     }
 
