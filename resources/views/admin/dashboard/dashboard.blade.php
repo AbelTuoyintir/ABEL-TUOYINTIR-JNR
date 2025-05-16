@@ -1,34 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Dashboard</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-</head>
-<body class="bg-gray-100 text-gray-800">
 
+<script src="https://cdn.tailwindcss.com"></script>
+<div class="bg-gray-100 text-gray-800">
   <div class="flex flex-col md:flex-row min-h-screen">
     <!-- Vertical Navigation Bar -->
-    <nav class="bg-blue-800 text-white w-full md:w-64 p-6 space-y-6 md:h-auto">
-      <div class="text-2xl font-bold text-center md:text-left">GW AssetSys</div>
-      <ul class="space-y-4 text-center md:text-left">
-        <li><a href="#" class="block hover:text-gray-300">Dashboard</a></li>
-        <li><a href="#" class="block hover:text-gray-300">Assets</a></li>
-        <li><a href="#" class="block hover:text-gray-300">Maintenance</a></li>
-        <li><a href="#" class="block hover:text-gray-300">Reports</a></li>
-      </ul>
-      <div class="mt-8 md:mt-auto text-sm text-center md:text-left text-gray-300">Welcome, Admin</div>
-    </nav>
+    <x-admin-navbar />
 
     <!-- Page Content Wrapper -->
     <div class="flex-1 flex flex-col">
       <!-- Header -->
-      <header class="bg-white shadow p-4 flex justify-between items-center">
-        <h1 class="text-2xl font-bold">Admin Dashboard</h1>
-        <span class="text-sm text-gray-600">Welcome Admin</span>
-      </header>
+     <x-header />
 
       <!-- Main Content -->
       <main class="p-4 sm:p-6 space-y-6 w-full">
@@ -303,7 +283,7 @@
             </div>
           </div>
            <div class="bg-blue-600 text-white p-4 rounded shadow text-center hover:bg-blue-700 transition">
-            <h3 class="text-lg font-semibold">Audit Logs</h3>
+            <h3 class="text-lg font-semibold my-">Audit Logs</h3>
             <div class="bg-white p-4 rounded shadow overflow-x-auto">
               <table class="w-full text-sm text-left text-gray-500 border border-gray-200">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-100">
@@ -353,5 +333,4 @@
     </div>
   </div>
 
-</body>
-</html>
+</div>

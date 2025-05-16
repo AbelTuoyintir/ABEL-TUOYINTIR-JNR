@@ -27,3 +27,7 @@ Route::get('asset/management', function(){
 Route::get('asset/maintance', function(){
     return view('admin.assetsManagement.maintance');
 });
+
+Route::get('analysis', function(){
+    return view('admin.analysis-and-report.analysis');
+});
