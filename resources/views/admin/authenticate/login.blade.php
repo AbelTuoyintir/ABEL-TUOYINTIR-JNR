@@ -24,9 +24,10 @@
       <!-- Login Form -->
       <div x-show="tab === 'login'" x-transition>
         <h4 class="text-center text-gray-700 font-semibold mb-4">Don't have an account? Register on the other tab</h4>
-        <form class="space-y-4">
-          <input type="text" placeholder="Username or Email" class="w-full border p-2 rounded">
-          <input type="password" placeholder="Password" class="w-full border p-2 rounded">
+        <form action="{{route('login.post')}}" method="POST" class="space-y-4">
+          @csrf
+          <input type="text" name="staffID" placeholder="Staff ID" class="w-full border p-2 rounded">
+          <input type="password" name="password" placeholder="Password" class="w-full border p-2 rounded">
           <button class="bg-blue-600 text-white px-4 py-2 rounded w-full">Login</button>
           <a href="#" class="text-sm text-blue-600 block mt-2 text-center">Forgot Password?</a>
         </form>
@@ -34,16 +35,36 @@
 
       <!-- Register Form -->
       <div x-show="tab === 'register'" x-transition>
-        <form class="space-y-4">
-          <input type="text" placeholder="Full Name" class="w-full border p-2 rounded">
-          <input type="email" placeholder="Email" class="w-full border p-2 rounded">
-          <input type="text" placeholder="Role (admin, technician, staff)" class="w-full border p-2 rounded">
-          <input type="text" placeholder="Department" class="w-full border p-2 rounded">
-          <input type="text" placeholder="Ghana Water ID" class="w-full border p-2 rounded">
-          <input type="password" placeholder="Password" class="w-full border p-2 rounded">
-          <button class="bg-green-600 text-white px-4 py-2 rounded w-full">Register</button>
+        <form method="POST" action="{{route('register')}}" class="space-y-4">
+           @csrf
+          <!-- Name -->
+          <input name="name" type="text" placeholder="Full Name" class="w-full border p-2 rounded" required>
+
+          <!-- Email -->
+          <input name="email" type="email" placeholder="Email" class="w-full border p-2 rounded" required>
+
+          <!-- Staff ID -->
+          <input name="staffID" type="text" placeholder="Ghana Water Staff ID" class="w-full border p-2 rounded" required>
+
+          <!-- Role -->
+          <select name="role" class="w-full border p-2 rounded" required>
+            <option value="" disabled selected>Select Role</option>
+            <option value="user">User</option>
+            <option value="technician">Technician</option>
+            <option value="admin">Admin</option>
+          </select>
+
+          <!-- phone -->
+          <input name="phone" type="text" placeholder="Phone Number" class="w-full border p-2 rounded" required>
+
+          
+          <!-- Password -->
+          <input name="password" type="password" placeholder="Password" class="w-full border p-2 rounded" required>
+
+          <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded w-full">Register</button>
         </form>
       </div>
+
     </div>
 
   </div>

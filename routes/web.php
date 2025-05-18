@@ -3,23 +3,24 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Dashboard;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/register', [AuthController::class, 'create'])->name('register');
 
 Route::get('/members', [MemberController::class, 'index'])->name('members.index');
-Route::get('/home',function () {
-    return view('landing');
-});
+// Route::get('/home',function () {
+//     return view('landing');
+// });
 
-Route::get('login',function(){
-    return view('admin.authenticate.login');
-});
+// Dashboard routes 
+Route::get('dashboard',[Dashboard::class, 'index'])->name('dashboard');
 
-Route::get('dashboard',function(){
-    return view('admin.dashboard.dashboard');
-});
+
+// assets management routes 
 Route::get('asset/management', function(){
     return view('admin.assetsManagement.assetManagement');
 });

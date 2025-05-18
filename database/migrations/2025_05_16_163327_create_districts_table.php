@@ -17,8 +17,6 @@ return new class extends Migration
             $table->string('digital Address')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->foreignId('region_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->enum('status', ['active', 'inactive'])->default('active');
              $table->string('updated_by')->nullable();
             $table->string('created_by')->nullable();

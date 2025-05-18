@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('offices', function (Blueprint $table) {
+        Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->foreignId('region_id');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('office_id');
             $table->enum('status', ['active', 'inactive'])->default('active');
-             $table->string('updated_by')->nullable();
+            $table->string('updated_by')->nullable();
             $table->string('created_by')->nullable();
             $table->timestamps();
         });
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('offices');
+        Schema::dropIfExists('departments');
     }
 };
